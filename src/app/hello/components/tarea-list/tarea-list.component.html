@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 style="text-align: center; padding-bottom: 20px;">ACTIVIDAD #1 DE ANGULAR</h1>
+  <form #formulario="ngForm" (submit)="onSubmit(formulario.value)">
+    <div>
+        <label for="">Titulo</label>
+        <input type="text" name="title" ngModel>
+    </div>
+    <div>
+      <label for="">Descripcion</label>
+      <input type="text" name="description" ngModel>
+    </div>
+    <div>
+      <label for="">Prioridad</label>
+      <select name="priority" ngModel>
+        <option value="0">Leve</option>
+        <option value="1">Media</option>
+        <option value="2">Alta</option>
+      </select>
+    </div>
+
+    <input type="submit" value="Enviar">
+
+  </form>
+</div>
+<ul class="lista-tareas">
+    <li *ngFor="let tarea of tareas; let indice = index " class="item-tarea">
+      {{ tarea.title }} -- {{tarea.description}} - Prioridad: {{ tarea.priority }}
+      <button (click)="onRemove(indice)">Tarea Completada</button>
+    </li>
+</ul>
